@@ -1,5 +1,6 @@
 package com.kalosoftware.services.dto;
 
+import com.kalosoftware.exceptions.ConstantErrors;
 import com.kalosoftware.exceptions.ServicesException;
 import java.util.Set;
 import javax.json.Json;
@@ -37,7 +38,7 @@ public abstract class DTOFacade<T> {
         final JsonObject errors = this.getErrors();
 
         if(!errors.isEmpty()){
-            throw new ServicesException(Response.Status.BAD_REQUEST, errors.toString());
+            throw new ServicesException(Response.Status.BAD_REQUEST, errors.toString(), ConstantErrors.DATA_VALIDATION_ERROR);
         }
     }
 

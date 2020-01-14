@@ -16,8 +16,15 @@ public class ServicesExceptionMapper implements ExceptionMapper<ServicesExceptio
     @Override
     public Response toResponse(ServicesException exception) {
         if (exception.getMessage() != null) {
-            final JsonObject json = Json.createObjectBuilder().add("message", exception.getMessage()).build();
             
+            if (ConstantErrors.DATA_VALIDATION_ERROR.equals(exception.getError())) {
+                return Response.status(exception.getStatus())
+                        .type(MediaType.APPLICATION_JSON)
+                        .entity(exception.getMessage())
+                        .build();
+            }
+            final JsonObject json = Json.createObjectBuilder().add("message", exception.getMessage()).build();
+
             return Response.status(exception.getStatus())
                     .type(MediaType.APPLICATION_JSON)
                     .entity(json.toString())

@@ -15,6 +15,7 @@ public class Application extends ResourceConfig {
     public Application() {
         packages("io.swagger.v3.jaxrs2.integration.resources,com.kalosoftware.services");
 
+        //register(JacksonFeatures.class);
         register(ServicesExceptionMapper.class);
     }
 

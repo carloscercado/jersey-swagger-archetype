@@ -21,7 +21,8 @@ public class ServicesException extends Exception {
         this.status = status;
     }
 
-    public ServicesException(Response.Status status, Integer error) {
+    public ServicesException(Response.Status status, String msg, Integer error) {
+        super(msg);
         this.status = status;
         this.error = error;
     }

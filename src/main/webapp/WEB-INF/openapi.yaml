@@ -5,4 +5,4 @@ openAPI:
     version: '1.0.0'
     title: 'Jersey and Swagger UI'
   servers:
-    - url: '/jersey-swagger/'
+    - url: '/jersey-swagger-hibernate/'
